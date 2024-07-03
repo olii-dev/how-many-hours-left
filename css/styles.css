@@ -15,6 +15,18 @@ body {
     padding: 20px;
     width: 300px;
     color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.container-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.container-item:not(:hover) {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 h2 {
