@@ -3,7 +3,13 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.container {
+.container-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.container-item {
     background-color: #20b2aa;
     border-radius: 10px;
     padding: 20px;

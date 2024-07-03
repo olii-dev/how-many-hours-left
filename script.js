@@ -1,24 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const decreaseBtn = document.getElementById('decrease');
-    const increaseBtn = document.getElementById('increase');
-    const quantityBtn = document.getElementById('quantity');
-    let quantity = 0;
+    const containers = document.querySelectorAll('.container');
 
-    function updateQuantity() {
-        quantityBtn.textContent = quantity;
-    }
+    containers.forEach(container => {
+        const decreaseBtn = container.querySelector('.decrease');
+        const increaseBtn = container.querySelector('.increase');
+        const quantityBtn = container.querySelector('.quantity');
+        let quantity = 0;
 
-    decreaseBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (quantity > 0) {
-            quantity--;
-            updateQuantity();
+        function updateQuantity() {
+            quantityBtn.textContent = quantity;
         }
-    });
 
-    increaseBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        quantity++;
-        updateQuantity();
+        decreaseBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (quantity > 0) {
+                quantity--;
+                updateQuantity();
+            }
+        });
+
+        increaseBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            quantity++;
+            updateQuantity();
+        });
     });
 });
