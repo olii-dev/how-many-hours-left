@@ -117,4 +117,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
         updateQuantity();
     });
+
+    function calculateTotalCost() {
+        let totalCost = 0;
+        containers.forEach(container => {
+            const quantity = parseInt(container.querySelector('.quantity').textContent);
+            const price = parseInt(container.querySelector('.price').textContent.match(/\d+/)[0]);
+            totalCost += quantity * price;
+        });
+        return totalCost;
+    }
+
+    function calculateRemainingTime() {
+        const totalCost = calculateTotalCost();
+        const hoursPerDay = parseInt(prompt("Please let me know how many hours per day can you work? (1 hour = 1 ticket)"));
+        
+        if (isNaN(hoursPerDay) || hoursPerDay <= 0) {
+            alert("Please enter a valid number of hours. (More than 0)");
+            return;
+        }
+    
+        const currentDate = new Date();
+        const endDate = new Date(2024, 7, 31);
+        const daysRemaining = Math.ceil((endDate - currentDate) / (1000 * 60 * 60 * 24));
+        const totalHoursAvailable = daysRemaining * hoursPerDay;
+    
+        if (totalHoursAvailable >= totalCost) {
+            const daysNeeded = Math.ceil(totalCost / hoursPerDay);
+            alert(`I have great news! You can earn enough tickets in ${daysNeeded} days! Good luck!`);
+        } else {
+            const additionalHoursNeeded = totalCost - totalHoursAvailable;
+            alert(`Umm, You need ${additionalHoursNeeded} more hours to get all the selected items. Maybe try cutting down your selection or bringing your daily work hours up.`);
+        }
+    }
+
+    document.getElementById('calculateBtn').addEventListener('click', calculateRemainingTime);
 });
