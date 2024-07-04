@@ -64,7 +64,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (itemName.includes('logitech mx mechanical')) {
             maxQuantity = 1;
-        }   
+        }
+        if (itemName.includes('wacom screen')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('framework factory seconds')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('prusa mini+')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('bambu lab a1 mini')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('ipad 10th gen + 1st gen apple pencil')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('framework 13 inch')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('quest 3')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('framework 16 inch')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('macbook air m2')) {
+            maxQuantity = 1;
+        }
 
         function updateQuantity() {
             quantityBtn.textContent = quantity;
