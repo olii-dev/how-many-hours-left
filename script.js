@@ -20,9 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (itemName.includes('domain')) {
             maxQuantity = 10;
         }
-        if (itemName.includes('notebook')) {
-            maxQuantity = 1;
-        }
         if (itemName.includes('logic analyser')) {
             maxQuantity = 5;
         }
@@ -80,9 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (itemName.includes('ipad 10th gen + 1st gen apple pencil')) {
             maxQuantity = 1;
         }
-        if (itemName.includes('framework 13 inch')) {
-            maxQuantity = 1;
-        }
         if (itemName.includes('quest 3')) {
             maxQuantity = 1;
         }
@@ -137,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        const hoursPerDay = parseInt(prompt("Please let me know how many hours per day can you work? (1 hour = 1 ticket)"));
+        const hoursPerDay = parseInt(prompt("How many hours per day can you work? (1 hour = 1 ticket)"));
         
         if (isNaN(hoursPerDay) || hoursPerDay <= 0) {
             alert("Please enter a valid number of hours. (More than 0)");
@@ -145,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     
         const currentDate = new Date();
-        const endDate = new Date(2024, 7, 31);
+        const endDate = new Date(2024, 8, 31);
         const daysRemaining = Math.ceil((endDate - currentDate) / (1000 * 60 * 60 * 24));
         const totalHoursAvailable = daysRemaining * hoursPerDay;
         const totalTicketsNeeded = totalCost - ticketsOwned;
