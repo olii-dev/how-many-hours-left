@@ -130,6 +130,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function calculateRemainingTime() {
         const totalCost = calculateTotalCost();
+        const ticketsOwned = parseInt(prompt("How many tickets do you currently have?"));
+        
+        if (isNaN(ticketsOwned) || ticketsOwned < 0) {
+            alert("Please enter a valid number of tickets. (0 or more)");
+            return;
+        }
+        
         const hoursPerDay = parseInt(prompt("Please let me know how many hours per day can you work? (1 hour = 1 ticket)"));
         
         if (isNaN(hoursPerDay) || hoursPerDay <= 0) {
@@ -141,12 +148,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const endDate = new Date(2024, 7, 31);
         const daysRemaining = Math.ceil((endDate - currentDate) / (1000 * 60 * 60 * 24));
         const totalHoursAvailable = daysRemaining * hoursPerDay;
+        const totalTicketsNeeded = totalCost - ticketsOwned;
     
-        if (totalHoursAvailable >= totalCost) {
-            const daysNeeded = Math.ceil(totalCost / hoursPerDay);
+        if (totalHoursAvailable >= totalTicketsNeeded) {
+            const daysNeeded = Math.ceil(totalTicketsNeeded / hoursPerDay);
             alert(`I have great news! You can earn enough tickets in ${daysNeeded} days! Good luck!`);
         } else {
-            const additionalHoursNeeded = totalCost - totalHoursAvailable;
+            const additionalHoursNeeded = totalTicketsNeeded - totalHoursAvailable;
             alert(`Umm, You need ${additionalHoursNeeded} more hours to get all the selected items. Maybe try cutting down your selection or bringing your daily work hours up.`);
         }
     }
