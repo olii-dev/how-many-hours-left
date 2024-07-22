@@ -14,14 +14,26 @@ document.addEventListener('DOMContentLoaded', function() {
         if (itemName.includes('pile of stickers')) {
             maxQuantity = 10;
         }
+        if (itemName.includes('e-fidgets')) {
+            maxQuantity = 1;
+        }
         if (itemName.includes('openai credits')) {
             maxQuantity = 1;
         }
         if (itemName.includes('domain')) {
             maxQuantity = 10;
         }
+        if (itemName.includes('good sci-fi book')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('notebook')) {
+            maxQuantity = 1;
+        }
         if (itemName.includes('logic analyser')) {
             maxQuantity = 5;
+        }
+        if (itemName.includes('usb-c charger')) {
+            maxQuantity = 1;
         }
         if (itemName.includes('breadboard + jumper wires')) {
             maxQuantity = 10;
@@ -38,6 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (itemName.includes('soldering iron + solder')) {
             maxQuantity = 5;
         }
+        if (itemName.includes('helping hands')) {
+            maxQuantity = 1;
+        }
         if (itemName.includes('raspberry pi')) {
             maxQuantity = 1;
         }
@@ -46,16 +61,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (itemName.includes('github keycaps x8')) {
             maxQuantity = 1;
-        }   
-        if (itemName.includes('wacom intuos s')) {
-        maxQuantity = 1;
-        }   
+        }
         if (itemName.includes('octocat')) {
-        maxQuantity = 1;
+            maxQuantity = 1;
+        }
+        if (itemName.includes('tuxedo pick set + clear training lock')) {
+            maxQuantity = 1;
+        }   
+        if (itemName.includes('skeletool')) {
+            maxQuantity = 1;
+        } 
+        if (itemName.includes('wacom intuos s')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('logitech mouse mx anywhere 2s')) {
+            maxQuantity = 1;
         }
         if (itemName.includes('keychron k6 pro')) {
             maxQuantity = 1;
+        } 
+        if (itemName.includes('ryobi rotary tool kit')) {
+            maxQuantity = 1;
         }
+        if (itemName.includes('ryobi 4 tool combo kit')) {
+            maxQuantity = 1;
+        }
+        if (itemName.includes('backpack')) {
+            maxQuantity = 1;
+        } 
         if (itemName.includes('flipper zero')) {
             maxQuantity = 1;
         }
@@ -68,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (itemName.includes('framework factory seconds')) {
             maxQuantity = 1;
         }
-        if (itemName.includes('prusa mini+')) {
+        if (itemName.includes('nvidia tesla p40 gpu (24gb gddr5)')) {
             maxQuantity = 1;
         }
         if (itemName.includes('bambu lab a1 mini')) {
@@ -144,12 +177,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalHoursAvailable = daysRemaining * hoursPerDay;
         const totalTicketsNeeded = totalCost - ticketsOwned;
     
-        if (totalHoursAvailable >= totalTicketsNeeded) {
+        if (totalTicketsNeeded <= 0) {
+            const ticketsExtra = ticketsOwned - totalCost;
+            alert(`Congrats! You achieved your goal ${ticketsExtra} tickets ago.`);
+        } else if (totalHoursAvailable >= totalTicketsNeeded) {
             const daysNeeded = Math.ceil(totalTicketsNeeded / hoursPerDay);
-            alert(`I have great news! You can earn enough tickets in ${daysNeeded} days! Good luck!`);
+            alert(`You can earn enough tickets in ${daysNeeded} days! Good luck! :D`);
         } else {
             const additionalHoursNeeded = totalTicketsNeeded - totalHoursAvailable;
-            alert(`Umm, You need ${additionalHoursNeeded} more hours to get all the selected items. Maybe try cutting down your selection or bringing your daily work hours up.`);
+            alert(`You need ${additionalHoursNeeded} more hours to get all the selected items. Maybe try cutting down your selection or bringing your daily work hours up.`);
         }
     }
 
